@@ -8,14 +8,19 @@ export interface Props {
 	tag: string
 }
 const { title, price, tag, imageUrl, code } = Astro.props;
+
 ---
 
 <a href={`/product/${code || 'ab123'}`}>
-	<div class="product-card flex flex-col bg-white shadow-md p-3 relative pt-5">
+	<div class="product-card flex flex-col bg-white shadow-md p-3 pt-3 gap-2">
 		<div class="font-extralight text-sm">#{tag}</div>
-		<div class="price text-center font-mono px-2 bg-slate-200 font-bold">Q {price.toFixed(2)}</div>
 		<img class="product-image" src={imageUrl} />
-		<div class="text-center">{title}</div>
+		<div class="text-right px-2 text-2xl font-bold">Q {price.toFixed(2)}</div>
+		<div class="text-left">{title}</div>
+		<div class="flex items-center justify-between my-2">
+			<button class="bg-teal-700 text-white p-1 px-4 rounded-md">add to cart</button>
+			<button class="bg-teal-600 text-white p-1 px-4 rounded-md">buy now</button>
+		</div>
 	</div>
 </a>
 
@@ -26,10 +31,5 @@ const { title, price, tag, imageUrl, code } = Astro.props;
 	.product-image {
 		height: 150px;
 		align-self: center;
-	}
-	.price {
-		right: 0px;
-		top: 0px;
-		position: absolute;
 	}
 </style>
