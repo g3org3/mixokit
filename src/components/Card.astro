@@ -1,63 +1,37 @@
 ---
+
 export interface Props {
 	title: string;
-	body: string;
-	href: string;
+	price: number;
+	desc?: string;
+	imageUrl: string;
+	code?: string;
+	tag: string
 }
 
-const { href, title, body } = Astro.props;
+const { title, price, tag, imageUrl, code } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 0.25rem;
-		background-color: white;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 0.6rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	}
+<a href={`/product/${code || 'ab123'}`}>
+<div class="product-card flex flex-col bg-white shadow-md p-3 relative pt-5">
+	<div class="font-extralight text-sm">#{tag}</div>
+	<div class="price text-center font-mono px-2 bg-slate-200 font-bold">Q {price.toFixed(2)}</div>
+	<img class="product-image" src={imageUrl} />
+	<div class="text-center">{title}</div>
+</div>
+</a>
 
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1rem 1.3rem;
-		border-radius: 0.35rem;
-		color: #111;
-		background-color: white;
-		opacity: 0.8;
+<style>
+	.product-card {
+		width: 240px;
 	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	.product-image {
+		height: 150px;
+		align-self: center;
 	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-		color: #444;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent));
+	.price {
+		right: 0px;
+		top: 0px;
+		position: absolute;
 	}
 </style>

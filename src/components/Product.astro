@@ -1,0 +1,41 @@
+---
+export interface Props {
+	title: string;
+	price: number;
+	desc?: string;
+	imageUrl: string;
+	code?: string;
+    tag: string;
+}
+
+const { title, price, desc, imageUrl, code, tag } = Astro.props;
+---
+
+<div class="product-card flex flex-col bg-white shadow-md p-3">
+    <div class="text-center text-3xl">{title}</div>
+    <div class="flex">
+        <div class="flex flex-col self-start flex-shrink-0">
+            <img class="product-image" src={imageUrl} />
+        </div>
+        <div class="flex flex-col p-2 pt-8 gap-3">
+            <div class="text-justify">{desc}</div>
+            <div class="flex">
+                <div class="text-center font-mono bg-blue-800 text-white self-start p-2 px-4 font-bold">Q {price.toFixed(2)}</div>
+                <div class="flex-1"></div>
+                <div class="font-extralight text-lg">#{tag}</div>
+            </div>
+            <button class="bg-gray-700 text-white p-2 px-4">Ordenar</button>
+        </div>
+    </div>
+</div>
+
+<style>
+	.product-card {
+		width: 100%;
+        align-self: flex-start;
+	}
+	.product-image {
+		height: 250px;
+		align-self: center;
+	}
+</style>
