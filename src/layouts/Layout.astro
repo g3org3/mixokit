@@ -27,9 +27,20 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-	body {
-		height: 100vh;
+	@supports (-webkit-touch-callout: none) {
+		/* CSS specific to iOS devices */ 
+		body {
+			height: 90vh;
+		}
 	}
+
+	@supports not (-webkit-touch-callout: none) {
+		/* CSS for other than iOS devices */ 
+		body {
+			height: 100vh;
+		}
+	}
+	
 	html {
 		font-family: system-ui, sans-serif;
 	}
