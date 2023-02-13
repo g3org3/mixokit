@@ -2,34 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import products from '../products.json';
-
-interface TProduct {
-    title: string
-    price: number
-    imageUrl: string
-    desc: string
-    code: string
-	tag: string
-}
-
-const productsByCode = products.reduce<Record<string, TProduct>>((byCode, product) => {
-    byCode[product.code] = {...product, desc: `Allows you to drain cocktails from a bar shaker into a glass
-Heavy-duty spring filters and catches ice and other solids
-Spring ensures an excellent fit with shakers and mixing glasses
-Perforation pattern allows for smooth, efficient pouring
-Integrated prongs balance the strainer on shakers and glasses, helping to prevent slipping
-18/8 stainless steel core construction for pitting and corrosion resistance
-Built-in finger stop makes it easy to hold the strainer while in use
-Essential, go-to tool for bartenders at trendy bars and restaurants`}
-
-    return byCode
-}, {})
-
-const p = Object.values(productsByCode)
 ---
 
 <Layout>	
-	{p.map(p => (
+	{products.map(p => (
 		<Card tag={p.tag} title={p.title} code={p.code} price={p.price} imageUrl={p.imageUrl} />
 	))}
 </Layout>

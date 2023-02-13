@@ -1,5 +1,4 @@
 ---
-
 export interface Props {
 	title: string;
 	price: number;
@@ -8,17 +7,16 @@ export interface Props {
 	code?: string;
 	tag: string
 }
-
 const { title, price, tag, imageUrl, code } = Astro.props;
 ---
 
 <a href={`/product/${code || 'ab123'}`}>
-<div class="product-card flex flex-col bg-white shadow-md p-3 relative pt-5">
-	<div class="font-extralight text-sm">#{tag}</div>
-	<div class="price text-center font-mono px-2 bg-slate-200 font-bold">Q {price.toFixed(2)}</div>
-	<img class="product-image" src={imageUrl} />
-	<div class="text-center">{title}</div>
-</div>
+	<div class="product-card flex flex-col bg-white shadow-md p-3 relative pt-5">
+		<div class="font-extralight text-sm">#{tag}</div>
+		<div class="price text-center font-mono px-2 bg-slate-200 font-bold">Q {price.toFixed(2)}</div>
+		<img class="product-image" src={imageUrl} />
+		<div class="text-center">{title}</div>
+	</div>
 </a>
 
 <style>
