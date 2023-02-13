@@ -1,4 +1,6 @@
 ---
+import { Img } from "astro-imagetools/components"
+
 export interface Props {
 	title?: string;
 }
@@ -17,7 +19,7 @@ const { title } = Astro.props;
 		<div class="bg-white h-16 flex items-center p-2 shadow-md z-10">
 			<div class="container mx-auto">
 				<a href="/">
-					<img class="h-12" src="https://mixokitgt.com/wp-content/uploads/2020/08/logo-e1597703267528.png" />
+					<Img alt="mixokit" loading="eager" format="webp" placeholder="tracedSVG" height={48} src="https://mixokitgt.com/wp-content/uploads/2020/08/logo-e1597703267528.png" />
 				</a>
 			</div>
 		</div>
