@@ -11,15 +11,15 @@ const { title, price, tag, imageUrl, code } = Astro.props;
 
 ---
 
-<a href={`/product/${code || 'ab123'}`}>
-	<div class="product-card flex flex-col bg-white shadow-md p-3 pt-3 gap-2">
+<a href={`/product/${code || 'ab123'}`} class="bg-white">
+	<div class="product-card flex flex-col shadow-md p-3 pt-3 gap-2">
 		<div class="font-extralight text-sm">#{tag}</div>
 		<img class="product-image" src={imageUrl} />
 		<div class="text-right px-2 text-2xl font-bold">Q {price.toFixed(2)}</div>
 		<div class="text-left">{title}</div>
 		<div class="flex items-center justify-between my-2">
-			<button class="bg-teal-700 text-white p-1 px-4 rounded-md">add to cart</button>
-			<button class="bg-teal-600 text-white p-1 px-4 rounded-md">buy now</button>
+			<button class="transition-colors bg-gray-50 hover:bg-gray-200 active:bg-gray-300 text-gray-600 p-1 px-4 rounded-md">add to cart</button>
+			<button class="transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-600 font-bold p-1 px-4 rounded-md">buy now</button>
 		</div>
 	</div>
 </a>
