@@ -13,7 +13,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title || 'Mixokit'}</title>
 	</head>
-	<body class="bg-slate-50 flex flex-col">
+	<body class="bg-stone-50 flex flex-col">
 		<div class="bg-white h-16 flex items-center p-2 shadow-md z-10">
 			<div class="container mx-auto">
 				<a href="/">
@@ -40,7 +40,12 @@ const { title } = Astro.props;
 			height: 100vh;
 		}
 	}
-	
+	.bg-brand {
+		background: #103643;
+	}
+	.text-brand {
+		color: #103643;
+	}
 	html {
 		font-family: system-ui, sans-serif;
 	}

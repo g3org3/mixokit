@@ -18,8 +18,8 @@ const { title, price, tag, imageUrl, code } = Astro.props;
 		<div class="text-right px-2 text-2xl font-bold">Q {price.toFixed(2)}</div>
 		<div class="text-left">{title}</div>
 		<div class="flex items-center justify-end my-2 gap-2">
-			<button class="transition-colors bg-gray-50 hover:bg-gray-200 active:bg-gray-300 text-gray-600 p-1 px-4 rounded-md">add to cart</button>
-			<button class="transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-600 font-bold p-1 px-4 rounded-md">buy now</button>
+			<button class="capitalize transition-colors bg-gray-50 hover:bg-gray-200 active:bg-gray-300 text-gray-600 p-1 px-4 rounded-md">add to cart</button>
+			<button class="capitalize transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-600 font-bold p-1 px-4 rounded-md">buy now</button>
 		</div>
 	</div>
 </a>
