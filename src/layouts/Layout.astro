@@ -1,10 +1,9 @@
 ---
-import { Img } from "astro-imagetools/components"
-
 export interface Props {
 	title?: string;
 }
 const { title } = Astro.props;
+import Navbar from '../components/Navbar.astro'
 ---
 
 <!DOCTYPE html>
@@ -16,13 +15,7 @@ const { title } = Astro.props;
 		<title>{title || 'Mixokit'}</title>
 	</head>
 	<body class="bg-stone-50 flex flex-col">
-		<div class="bg-white h-16 flex items-center p-2 shadow-md z-10">
-			<div class="container mx-auto">
-				<a href="/">
-					<Img alt="mixokit" loading="eager" format="webp" placeholder="tracedSVG" height={48} src="https://mixokitgt.com/wp-content/uploads/2020/08/logo-e1597703267528.png" />
-				</a>
-			</div>
-		</div>
+		<Navbar />
 		<div class="container mx-auto flex-1 overflow-auto flex p-2 gap-3 flex-wrap items-center justify-around">
 			<slot />
 		</div>

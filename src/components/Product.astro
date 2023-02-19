@@ -1,5 +1,7 @@
 ---
+// @ts-ignore
 import { Img } from "astro-imagetools/components"
+import AddToCart from "./AddToCart";
 export interface Props {
 	title: string;
 	price: number;
@@ -26,7 +28,7 @@ const { title, price, desc, imageUrl, code, tag } = Astro.props;
                 <div class="flex-1"></div>
             </div>
             <div class="flex justify-end gap-3">
-                <button class="rounded-md bg-teal-700 transition-colors hover:bg-teal-600 active:bg-teal-800 text-white p-2 px-4">Add to cart</button>
+                {!!code && <AddToCart id={code} client:only />}
                 <button class="rounded-md bg-teal-700 transition-colors hover:bg-teal-600 active:bg-teal-800 text-white p-2 px-4">Buy now</button>    
             </div>
             <a href="/" class="self-end">

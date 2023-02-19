@@ -1,0 +1,21 @@
+---
+// @ts-ignore
+import { Img } from "astro-imagetools/components"
+import Cart from "./Cart.jsx";
+---
+<div class="bg-white h-16 flex items-center p-2 shadow-md z-10">
+  <div class="container mx-auto flex">
+    <a href="/">
+      <Img
+        h={36}
+        alt="mixokit"
+        loading="eager"
+        format="webp"
+        placeholder="tracedSVG"
+        src="https://mixokitgt.com/wp-content/uploads/2020/08/logo-e1597703267528.png"
+      />
+    </a>
+    <div class="flex flex-1"></div>
+    <Cart client:only />
+  </div>
+</div>
