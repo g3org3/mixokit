@@ -1,55 +1,55 @@
 ---
 export interface Props {
-	title?: string;
+  title?: string
 }
-const { title } = Astro.props;
+const { title } = Astro.props
 import Navbar from '../components/Navbar.astro'
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title || 'Mixokit'}</title>
-	</head>
-	<body class="bg-stone-50 flex flex-col">
-		<Navbar />
-		<div class="container mx-auto flex-1 overflow-auto flex p-2 gap-3 flex-wrap items-center justify-around">
-			<slot />
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title || 'Mixokit'}</title>
+  </head>
+  <body class="bg-stone-50 flex flex-col">
+    <Navbar />
+    <div class="container mx-auto flex-1 overflow-auto flex p-2 gap-3 flex-wrap items-center justify-around">
+      <slot />
+    </div>
+  </body>
 </html>
 <style is:global>
-	@supports (-webkit-touch-callout: none) {
-		/* CSS specific to iOS devices */ 
-		body {
-			height: 90vh;
-		}
-	}
+  @supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */
+    body {
+      height: 90vh;
+    }
+  }
 
-	@supports not (-webkit-touch-callout: none) {
-		/* CSS for other than iOS devices */ 
-		body {
-			height: 100vh;
-		}
-	}
-	.bg-brand {
-		background: #103643;
-	}
-	.text-brand {
-		color: #103643;
-	}
-	html {
-		font-family: system-ui, sans-serif;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-	::selection {
-		background: rgb(15 118 110 / var(--tw-bg-opacity));
-		color: white;
-	}
+  @supports not (-webkit-touch-callout: none) {
+    /* CSS for other than iOS devices */
+    body {
+      height: 100vh;
+    }
+  }
+  .bg-brand {
+    background: #103643;
+  }
+  .text-brand {
+    color: #103643;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+      Courier New, monospace;
+  }
+  ::selection {
+    background: rgb(15 118 110 / var(--tw-bg-opacity));
+    color: white;
+  }
 </style>

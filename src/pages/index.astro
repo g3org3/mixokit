@@ -1,14 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import products from '../products.json';
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
+import products from '../products.json'
 ---
 
 <Layout>
-	{products.map(p => (
-		<Card tag={p.tag} title={p.title} code={p.code} price={p.price} imageUrl={p.imageUrl} />
-	))}
+  {
+    products.map((p) => (
+      <Card tag={p.tag} title={p.title} code={p.code} price={p.price} imageUrl={p.imageUrl} />
+    ))
+  }
 </Layout>
-
-<style>
-</style>

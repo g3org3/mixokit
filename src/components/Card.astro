@@ -1,38 +1,45 @@
 ---
 // @ts-ignore
-import { Img } from "astro-imagetools/components"
-import AddToCart from "./AddToCart";
+import { Img } from 'astro-imagetools/components'
+import AddToCart from './AddToCart'
 export interface Props {
-  title: string;
-  price: number;
-  desc?: string;
-  imageUrl: string;
-  code?: string;
+  title: string
+  price: number
+  desc?: string
+  imageUrl: string
+  code?: string
   tag: string
 }
-const { title, price, tag, imageUrl, code } = Astro.props;
+const { title, price, tag, imageUrl, code } = Astro.props
 ---
-<a href={`/product/${code || 'ab123'}`} class="bg-white transition-colors border-slate-100 border hover:border-teal-500 border-solid">
+
+<a
+  href={`/product/${code || 'ab123'}`}
+  class="bg-white transition-colors border-slate-100 border hover:border-teal-500 border-solid"
+>
   <div class="product-card flex flex-col shadow-md p-3 pt-3 gap-2">
     <div class="font-extralight text-sm">#{tag}</div>
     <div class="flex justify-center">
-      <Img format="webp" placeholder="tracedSVG" height={200} alt={'product '+ title} src={imageUrl} />
+      <Img format="webp" placeholder="tracedSVG" height={200} alt={'product ' + title} src={imageUrl} />
     </div>
     <div class="text-right px-2 text-2xl font-bold">Q {price.toFixed(2)}</div>
-      <div class="text-left">{title}</div>
-      <div class="flex items-center justify-end my-2 gap-2">
+    <div class="text-left">{title}</div>
+    <div class="flex items-center justify-end my-2 gap-2">
       <AddToCart client:only id={code || ''} />
-      <button class="capitalize transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-600 font-bold p-2 px-4 rounded-md">view</button>
+      <button
+        class="capitalize transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-600 font-bold p-2 px-4 rounded-md"
+        >view</button
+      >
     </div>
   </div>
 </a>
 
 <style>
-.product-card {
-  width: 400px;
-}
-.product-image {
-  height: 200px;
-  align-self: center;
-}
+  .product-card {
+    width: 400px;
+  }
+  .product-image {
+    height: 200px;
+    align-self: center;
+  }
 </style>

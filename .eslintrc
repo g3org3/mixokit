@@ -1,0 +1,51 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:astro/recommended",
+    "eslint-config-prettier",
+    "prettier"
+  ],
+	"parser": "@typescript-eslint/parser",
+	"root": true,
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "eslint-plugin-prettier"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "newline-before-return": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 110,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": false,        "singleQuote": true,
+        "trailingComma": "es5",
+        "bracketSpacing": true,
+        "arrowParens": "always"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      },
+      "rules": {
+      }
+    }
+  ]
+}
