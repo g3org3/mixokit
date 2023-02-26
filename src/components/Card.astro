@@ -26,8 +26,9 @@ const { title, price, tag, imageUrl, code } = Astro.props
     <div class="text-left">{title}</div>
     <div class="flex items-center justify-end my-2 gap-2">
       <AddToCart client:only id={code || ''} />
+      <div class="flex-1"></div>
       <button
-        class="capitalize transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-600 font-bold p-2 px-4 rounded-md"
+        class="capitalize transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-700 font-bold p-2 px-4 rounded-md"
         >view</button
       >
     </div>

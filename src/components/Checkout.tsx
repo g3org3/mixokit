@@ -10,8 +10,6 @@ function Checkout() {
     setState(true)
     clearCart()
     confetti()
-    setTimeout(confetti, 300)
-    setTimeout(confetti, 600)
   }
 
   return (
