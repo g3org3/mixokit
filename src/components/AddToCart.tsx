@@ -1,17 +1,21 @@
 import { useStore } from '@nanostores/solid'
-import classNames from 'classnames'
-import { createSignal } from 'solid-js'
 import { addToCart, cartItems } from '../stores/cart'
 
-function AddToCart (props: { id: string}) {
-    const items = useStore(cartItems)
-    const [state, setState] = createSignal(true)
-    setTimeout(() => setState(false), 100)
+interface Props {
+    id: string;
+}
 
-    return <button disabled={items().includes(props.id)} onClick={() => {
+function AddToCart (props: Props) {
+    const items = useStore(cartItems)
+    const onClick = (e: MouseEvent) => {
+        e.stopPropagation()
+        e.preventDefault()
         addToCart(props.id)
-    }} class={classNames({'opacity-0': state()},"duration-700 transition-all rounded-md disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-teal-700 bg-teal-700 hover:bg-teal-600 active:bg-teal-800 text-white p-2 px-4")}>
-        {items().includes(props.id) ? '✅ Added' : 'Add to cart'}
+    }
+    const isAlreadyAdded = () => items().includes(props.id)
+
+    return <button disabled={isAlreadyAdded()} onClick={onClick} class="duration-700 transition-all rounded-md disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-teal-700 bg-teal-700 hover:bg-teal-600 active:bg-teal-800 text-white p-2 px-4">
+        {isAlreadyAdded() ? '✅ Added' : 'Add to cart'}
     </button>
 }
 
