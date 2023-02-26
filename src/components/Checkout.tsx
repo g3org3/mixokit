@@ -23,9 +23,15 @@ function Checkout() {
             Te enviaremos un visalink con la <br />
             confirmacion de tu pedido via whatsapp
           </div>
-          <div class="flex self-center flex-col px-2 relative">
+          <div class="flex self-center gap-4 flex-col px-2 relative">
             <img class="h-10" src="https://static.whatsapp.net/rsrc.php/v3/y7/r/DSxOAUB0raA.png" />
             <div class="h-4 w-4 -right-2 top-0 animate-bounce rounded-full absolute bg-red-600"></div>
+            <a
+              href="/"
+              class="px-4 py-2 bg-slate-100 text-sm font-medium rounded-md shadow-sm focus:outline-none hover:bg-slate-200 active:bg-slate-300 focus:ring-1 focus:ring-slate-500 focus:ring-offset-2"
+            >
+              <button>Back to product page</button>
+            </a>
           </div>
         </div>
       ) : (
@@ -51,7 +57,7 @@ function Checkout() {
               />
               <button
                 onClick={onClick}
-                class="p-2 px-10 text-teal-800 active:bg-teal-300 hover:bg-teal-200 rounded-md bg-teal-100 text-2xl"
+                class="py-2 px-10 text-white shadow-sm rounded-md hover:bg-teal-500 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 bg-teal-600 text-2xl"
               >
                 Confirm Order
               </button>

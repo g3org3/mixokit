@@ -19,7 +19,7 @@ function Cart() {
         onClick={() => setState((s) => !s)}
         class={classNames(
           { 'bg-teal-500': !state() },
-          'duration-300 relative flex-shrink-0 shadow-md bg-teal-600 text-white hover:bg-teal-500 rounded-md px-8'
+          'duration-300 relative flex-shrink-0 shadow-md bg-teal-600 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 text-white hover:bg-teal-500 rounded-md px-8'
         )}
       >
         cart
@@ -34,7 +34,7 @@ function Cart() {
           style={{ width: '400px' }}
           class={classNames(
             { hidden: state() },
-            'absolute right-0 z-10 flex flex-col mt-11 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
+            'absolute right-0 z-10 flex flex-col mt-11 origin-top-right rounded-md bg-white py-1 shadow-lg focus:outline-none ring-1 ring-offset-2 ring-teal-500'
           )}
           role="menu"
           aria-orientation="vertical"

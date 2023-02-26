@@ -2,6 +2,11 @@
 // @ts-ignore
 import { Img } from 'astro-imagetools/components'
 import Cart from './Cart.jsx'
+
+export interface Props {
+  isCheckout?: boolean
+}
+const { isCheckout } = Astro.props
 ---
 
 <div class="bg-white h-16 flex items-center p-2 shadow-md z-10">
@@ -17,6 +22,6 @@ import Cart from './Cart.jsx'
       />
     </a>
     <div class="flex flex-1"></div>
-    <Cart client:only />
+    {!isCheckout ? <Cart client:only /> : null}
   </div>
 </div>
