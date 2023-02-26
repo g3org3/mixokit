@@ -17,7 +17,10 @@ function Cart() {
       <button
         type="button"
         onClick={() => setState((s) => !s)}
-        class="duration-300 relative flex-shrink-0 bg-teal-600 text-white hover:bg-teal-500 rounded-md px-8"
+        class={classNames(
+          { 'bg-teal-500': !state() },
+          'duration-300 relative flex-shrink-0 shadow-md bg-teal-600 text-white hover:bg-teal-500 rounded-md px-8'
+        )}
       >
         cart
         {items().length > 0 ? (
@@ -39,22 +42,20 @@ function Cart() {
           tabindex="-1"
         >
           <div class="flex flex-col max-h-96 overflow-y-auto">
-            {items()
-              .reverse()
-              .map((i) => (
-                <a
-                  href={'/product/' + i}
-                  class="flex flex-col px-1"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="user-menu-item-2"
-                >
-                  <div class="flex hover:bg-slate-100 border-b border-slate-100 items-center gap-2 p-2 text-sm text-gray-700">
-                    <img class="h-20" src={byCode[i].imageUrl} />
-                    <div>{byCode[i].title}</div>
-                  </div>
-                </a>
-              ))}
+            {items().map((i) => (
+              <a
+                href={'/product/' + i}
+                class="flex flex-col px-1"
+                role="menuitem"
+                tabindex="-1"
+                id="user-menu-item-2"
+              >
+                <div class="flex hover:bg-slate-100 border-b border-slate-100 items-center gap-2 p-2 text-sm text-gray-700">
+                  <img class="h-20" src={byCode[i].imageUrl} />
+                  <div>{byCode[i].title}</div>
+                </div>
+              </a>
+            ))}
           </div>
           <div class="text-center flex pt-1 px-1">
             <button

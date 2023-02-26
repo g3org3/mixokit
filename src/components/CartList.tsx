@@ -22,8 +22,8 @@ function CartList() {
         </span>
       </div>
       {$cartItems().map((id) => (
-        <div class="p-2 flex items-center gap-2">
-          <img class="h-20 border rounded-xl" src={byCode[id].imageUrl} />
+        <div class="p-2 flex border-b last:border-0 border-slate-100 items-center gap-2">
+          <img class="h-20 rounded-xl" src={byCode[id].imageUrl} />
           <div class="flex-1">{byCode[id].title}</div>
           <div class="flex-shrink-0">Q {byCode[id].price.toFixed(2)}</div>
           <button

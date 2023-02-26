@@ -1,22 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import CartList from '../components/CartList.tsx'
-import { cartItems } from '../stores/cart';
+import Checkout from '../components/Checkout'
 ---
+
 <Layout>
   <div class="self-start w-full p-2 bg-white flex flex-col">
-    <div class="flex flex-col md:flex-row gap-6">
-      <div class="md:w-1/2 flex flex-col gap-2">
-        <div class="text-3xl text-slate-600 font-light">Checkout</div>
-        <input placeholder="Nombre" type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-
-        <input placeholder="Telefono" type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-
-      <button class="p-2 px-10 text-teal-800 hover:bg-teal-200 rounded-md bg-teal-100 text-2xl">Confirm Order</button>
-      </div>
-      <div class="md:w-1/2">
-        <CartList client:only />
-      </div>
-    </div>
+    <Checkout client:only />
   </div>
 </Layout>
