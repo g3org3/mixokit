@@ -24,6 +24,7 @@
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-astro": "^0.23.0",
 		"eslint-plugin-prettier": "^4.2.1",
+		"html-to-md": "^0.8.3",
 		"nanostores": "^0.7.4",
 		"prettier": "^2.8.4",
 		"solid-js": "^1.6.11",

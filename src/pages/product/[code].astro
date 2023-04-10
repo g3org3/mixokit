@@ -1,7 +1,7 @@
 ---
+import html2md from "html-to-md";
 import Product from "../../components/Product.astro";
 import Layout from "../../layouts/Layout.astro";
-/* import products from "../../products.json"; */
 import allproducts from "../../all_products.json";
 
 const _products = allproducts.map((x) => {
@@ -14,7 +14,7 @@ const _products = allproducts.map((x) => {
     imageUrl: x.Images.split(",")[0].trim(),
     price: Number(x["Regular price"]) || 0,
     tag: x.Tags.split(",")[0].trim(),
-    desc: x["Short description"],
+    desc: html2md(x["Short description"]),
   };
 });
 
@@ -49,7 +49,7 @@ export function getStaticPaths() {
       imageUrl: x.Images.split(",")[0].trim(),
       price: Number(x["Regular price"]) || 0,
       tag: x.Tags.split(",")[0].trim(),
-      desc: x["Short description"],
+      desc: html2md(x["Short description"]),
     };
   });
 
