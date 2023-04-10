@@ -1,12 +1,34 @@
 import { useStore } from '@nanostores/solid'
 import { cartItems, clearCart } from '../stores/cart'
-import products from '../products.json'
+import allproducts from '../all_products.json'
 import { createSignal } from 'solid-js'
 import classNames from 'classnames'
 
-type TProducts = typeof products
-type TProduct = TProducts[number]
-const byCode = products.reduce<Record<string, TProduct>>((by, p) => ({ ...by, [p.code]: p }), {})
+const _products = allproducts.map((x) => {
+  return {
+    code: x.Name.replaceAll('.', '').replaceAll(' ', '_').replaceAll('"', '').replaceAll('/', ''),
+    title: x.Name,
+    imageUrl: x.Images.split(',')[0].trim(),
+    price: Number(x['Regular price']) || 0,
+    tag: x.Tags.split(',')[0].trim(),
+    desc: x['Short description'],
+  }
+})
+
+interface TProduct {
+  title: string
+  price: number
+  imageUrl: string
+  desc: string
+  code: string
+  tag: string
+}
+
+const byCode = _products.reduce<Record<string, TProduct>>((by, product) => {
+  by[product.code] = product
+
+  return by
+}, {})
 
 function Cart() {
   const items = useStore(cartItems)
