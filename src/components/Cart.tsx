@@ -41,7 +41,7 @@ function Cart() {
         type="button"
         onClick={() => setState((s) => !s)}
         class={classNames(
-          { 'bg-teal-500': !state() },
+          { 'ja-event-name=Click+OpenCart': true, 'bg-teal-500': !state() },
           'duration-300 relative flex-shrink-0 shadow-md bg-teal-600 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 text-white hover:bg-teal-500 rounded-md px-6'
         )}
       >
@@ -91,7 +91,7 @@ function Cart() {
               href="/checkout"
               class="w-1/2 p-2 rounded-b hover:bg-teal-600 hover:text-white text-teal-600 border-l border-slate-100 font-bold"
             >
-              <button class="">checkout</button>
+              <button class="ja-event-name=Click+Checkout">checkout</button>
             </a>
           </div>
         </div>

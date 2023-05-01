@@ -11,7 +11,7 @@ export interface Props {
   code?: string
   tag: string
 }
-const { title, desc, price, tag, imageUrl, code } = Astro.props
+const { title, price, tag, imageUrl, code } = Astro.props
 ---
 
 <a
@@ -29,7 +29,7 @@ const { title, desc, price, tag, imageUrl, code } = Astro.props
       <AddToCart client:only id={code || ''} />
       <div class="flex-1"></div>
       <button
-        class="capitalize transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-700 font-bold p-2 px-4 rounded-md"
+        class="ja-event-name=View+Product capitalize transition-colors hover:bg-teal-600 active:bg-teal-800 hover:text-white text-teal-700 font-bold p-2 px-4 rounded-md"
         >view</button
       >
     </div>
