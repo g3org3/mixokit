@@ -57,7 +57,7 @@ function Checkout() {
               />
               <button
                 onClick={onClick}
-                class="py-2 px-10 text-white shadow-sm rounded-md hover:bg-teal-500 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 bg-teal-600 text-2xl"
+                class="ja-event-name=Click+Pay py-2 px-10 text-white shadow-sm rounded-md hover:bg-teal-500 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 bg-teal-600 text-2xl"
               >
                 Confirm Order
               </button>
