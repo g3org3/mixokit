@@ -1,10 +1,33 @@
 import { useStore } from '@nanostores/solid'
 import { cartItems, removeFromCart } from '../stores/cart'
-import products from '../products.json'
+import allproducts from '../all_products.json'
+import { getCode } from '../utils'
 
-type TProducts = typeof products
-type TProduct = TProducts[number]
-const byCode = products.reduce<Record<string, TProduct>>((by, p) => ({ ...by, [p.code]: p }), {})
+const _products = allproducts.map((x) => {
+  return {
+    code: getCode(x.Name),
+    title: x.Name,
+    imageUrl: x.Images.split(',')[0].trim(),
+    price: Number(x['Regular price']) || 0,
+    tag: x.Tags.split(',')[0].trim(),
+    desc: x['Short description'],
+  }
+})
+
+interface TProduct {
+  title: string
+  price: number
+  imageUrl: string
+  desc: string
+  code: string
+  tag: string
+}
+
+const byCode = _products.reduce<Record<string, TProduct>>((by, product) => {
+  by[product.code] = product
+
+  return by
+}, {})
 
 function CartList() {
   const $cartItems = useStore(cartItems)

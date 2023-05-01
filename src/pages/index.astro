@@ -1,35 +1,25 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-/* import products from "../products.json"; */
-import allproducts from "../all_products.json";
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
+import allproducts from '../all_products.json'
+import { getCode } from '../utils'
 
 const _products = allproducts.map((x) => {
   return {
-    code: x.Name.replaceAll(".", "")
-      .replaceAll(" ", "_")
-      .replaceAll('"', "")
-      .replaceAll("/", ""),
+    code: getCode(x.Name),
     title: x.Name,
-    imageUrl: x.Images.split(",")[0].trim(),
-    price: Number(x["Regular price"]) || 0,
-    tag: x.Tags.split(",")[0].trim(),
-    desc: x["Short description"],
-  };
-});
+    imageUrl: x.Images.split(',')[0].trim(),
+    price: Number(x['Regular price']) || 0,
+    tag: x.Tags.split(',')[0].trim(),
+    desc: x['Short description'],
+  }
+})
 ---
 
 <Layout>
   {
     _products.map((p) => (
-      <Card
-        tag={p.tag}
-        title={p.title}
-        code={p.code}
-        price={p.price}
-        desc={p.desc}
-        imageUrl={p.imageUrl}
-      />
+      <Card tag={p.tag} title={p.title} code={p.code} price={p.price} desc={p.desc} imageUrl={p.imageUrl} />
     ))
   }
 </Layout>

@@ -3,10 +3,11 @@ import { cartItems, clearCart } from '../stores/cart'
 import allproducts from '../all_products.json'
 import { createSignal } from 'solid-js'
 import classNames from 'classnames'
+import { getCode } from '../utils'
 
 const _products = allproducts.map((x) => {
   return {
-    code: x.Name.replaceAll('.', '').replaceAll(' ', '_').replaceAll('"', '').replaceAll('/', ''),
+    code: getCode(x.Name),
     title: x.Name,
     imageUrl: x.Images.split(',')[0].trim(),
     price: Number(x['Regular price']) || 0,
@@ -41,7 +42,7 @@ function Cart() {
         onClick={() => setState((s) => !s)}
         class={classNames(
           { 'bg-teal-500': !state() },
-          'duration-300 relative flex-shrink-0 shadow-md bg-teal-600 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 text-white hover:bg-teal-500 rounded-md px-8'
+          'duration-300 relative flex-shrink-0 shadow-md bg-teal-600 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 text-white hover:bg-teal-500 rounded-md px-6'
         )}
       >
         cart

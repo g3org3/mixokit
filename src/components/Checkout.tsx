@@ -1,4 +1,6 @@
 import { createSignal } from 'solid-js'
+// eslint-disable-next-line
+// @ts-ignore
 import confetti from 'canvas-confetti'
 import CartList from './CartList'
 import { clearCart } from '../stores/cart'

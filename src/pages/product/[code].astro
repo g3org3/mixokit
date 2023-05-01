@@ -1,59 +1,51 @@
 ---
-import html2md from "html-to-md";
-import Product from "../../components/Product.astro";
-import Layout from "../../layouts/Layout.astro";
-import allproducts from "../../all_products.json";
+import html2md from 'html-to-md'
+import Product from '../../components/Product.astro'
+import Layout from '../../layouts/Layout.astro'
+import allproducts from '../../all_products.json'
+import { getCode } from '../../utils'
 
 const _products = allproducts.map((x) => {
   return {
-    code: x.Name.replaceAll(".", "")
-      .replaceAll(" ", "_")
-      .replaceAll('"', "")
-      .replaceAll("/", ""),
+    code: getCode(x.Name),
     title: x.Name,
-    imageUrl: x.Images.split(",")[0].trim(),
-    price: Number(x["Regular price"]) || 0,
-    tag: x.Tags.split(",")[0].trim(),
-    desc: html2md(x["Short description"]),
-  };
-});
+    imageUrl: x.Images.split(',')[0].trim(),
+    price: Number(x['Regular price']) || 0,
+    tag: x.Tags.split(',')[0].trim(),
+    desc: html2md(x['Short description']),
+  }
+})
 
 interface TProduct {
-  title: string;
-  price: number;
-  imageUrl: string;
-  desc: string;
-  code: string;
-  tag: string;
+  title: string
+  price: number
+  imageUrl: string
+  desc: string
+  code: string
+  tag: string
 }
 
-const productsByCode = _products.reduce<Record<string, TProduct>>(
-  (byCode, product) => {
-    byCode[product.code] = product;
+const productsByCode = _products.reduce<Record<string, TProduct>>((byCode, product) => {
+  byCode[product.code] = product
 
-    return byCode;
-  },
-  {}
-);
+  return byCode
+}, {})
 
-const product = productsByCode[Astro.params.code || ""];
+const product = productsByCode[Astro.params.code || '']
 
 export function getStaticPaths() {
   const _products = allproducts.map((x) => {
     return {
-      code: x.Name.replaceAll(".", "")
-        .replaceAll(" ", "_")
-        .replaceAll('"', "")
-        .replaceAll("/", ""),
+      code: getCode(x.Name),
       title: x.Name,
-      imageUrl: x.Images.split(",")[0].trim(),
-      price: Number(x["Regular price"]) || 0,
-      tag: x.Tags.split(",")[0].trim(),
-      desc: html2md(x["Short description"]),
-    };
-  });
+      imageUrl: x.Images.split(',')[0].trim(),
+      price: Number(x['Regular price']) || 0,
+      tag: (x.Tags.split(',')[0] || '').trim(),
+      desc: html2md(x['Short description']),
+    }
+  })
 
-  return _products.map((x) => ({ params: { code: x.code } }));
+  return _products.map((x) => ({ params: { code: x.code } }))
 }
 ---
 
