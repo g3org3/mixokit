@@ -20,7 +20,7 @@ function AddToCart(props: Props) {
       onClick={onClick}
       class="ja-event-name=Click+AddToCart duration-700 transition-all rounded-md disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-teal-700 bg-teal-700 hover:bg-teal-600 active:bg-teal-800 text-white p-2 px-4"
     >
-      {isAlreadyAdded() ? '✅ Added' : 'Add to cart'}
+      {isAlreadyAdded() ? '✅ Agregado' : 'Agregar al carrito'}
     </button>
   )
 }

@@ -45,7 +45,7 @@ export function Searchbar() {
         class="duration-300 relative flex-shrink-0 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 text-teal-600 border-2 border-teal-600 hover:bg-teal-200 rounded-md px-4 mr-2"
         onClick={() => document.getElementById('fileid')?.click()}
       >
-        📸 take a picture
+        📸 toma una foto
       </button>
       <div
         style={{

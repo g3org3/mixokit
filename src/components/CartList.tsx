@@ -35,7 +35,7 @@ function CartList() {
   return (
     <div class="flex gap-2 flex-col">
       <div class="text-3xl font-light text-slate-600">
-        Order Details -{' '}
+        Detalle de la orden -{' '}
         <span class="font-mono text-teal-700">
           Q{' '}
           {$cartItems()
@@ -53,7 +53,7 @@ function CartList() {
             class="hover:text-red-700 text-slate-400 transition-colors"
             onClick={() => removeFromCart(id)}
           >
-            remove
+            Eliminar
           </button>
         </div>
       ))}

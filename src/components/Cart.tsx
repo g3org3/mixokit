@@ -31,6 +31,13 @@ const byCode = _products.reduce<Record<string, TProduct>>((by, product) => {
   return by
 }, {})
 
+function Icon() {
+  return <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+  </svg>
+}
+
+
 function Cart() {
   const items = useStore(cartItems)
   const [state, setState] = createSignal(true)
@@ -42,10 +49,11 @@ function Cart() {
         onClick={() => setState((s) => !s)}
         class={classNames(
           { 'ja-event-name=Click+OpenCart': true, 'bg-teal-500': !state() },
-          'duration-300 relative flex-shrink-0 shadow-md bg-teal-600 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 text-white hover:bg-teal-500 rounded-md px-6'
+          'duration-300 relative flex items-center gap-1 flex-shrink-0 shadow-md bg-teal-600 focus:ring-1 focus:ring-teal-500 focus:ring-offset-2 text-white hover:bg-teal-500 rounded-md px-6'
         )}
       >
-        cart
+        <span><Icon /></span>
+        <span>carrito</span>
         {items().length > 0 ? (
           <div class="absolute z-10 -top-2 px-2 rounded-full -right-2 bg-white text-teal-700 font-bold shadow">
             {items().length}
